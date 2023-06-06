@@ -1,6 +1,6 @@
 on:
+  workflow_dispatch:
   push:
-    workflow_dispatch:
     branches:
       - main
 
@@ -15,6 +15,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v3
+        id: release
         with:
           release-type: simple
           package-name: release-please-action
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      version: ${{ steps.release.outputs.version }}
+      body: ${{ steps.release.outputs.body }}
+  versionup:
+    needs:
+      - release-please
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: yanamura/ios-bump-version@v1
+      with:
+        version: ${{ version }}
