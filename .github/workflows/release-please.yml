@@ -27,9 +27,12 @@ jobs:
   versionup:
     needs:
       - release-please
-    if: ${{ !needs.release-please.outputs.release_created }}
+    if: ${{ needs.release-please.outputs.release_created }}
     runs-on: macos-latest
     steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ needs.release-please.outputs.release_pr.headBranchName }}
     - name: bump
       run: |
         xcrun agvtool new-marketing-version ${{ needs.release-please.outputs.version }} next-version -all
