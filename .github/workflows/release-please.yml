@@ -23,6 +23,7 @@ jobs:
       release_created: ${{ steps.release.outputs.release_created }}
       version: ${{ steps.release.outputs.version }}
       body: ${{ steps.release.outputs.body }}
+      release_pr: ${{ steps.release.output.pr }}
   versionup:
     needs:
       - release-please
@@ -32,3 +33,8 @@ jobs:
     - uses: yanamura/ios-bump-version@v1
       with:
         version: ${{ needs.release-please.outputs.version }}
+    - name: update
+      run: |
+        git add .
+        git commit -m "bump version"
+        git push origin ${{ needs.release-please.outputs.release_pr.headBranchName }}
