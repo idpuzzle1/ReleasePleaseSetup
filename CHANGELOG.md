@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/idpuzzle1/ReleasePleaseSetup/compare/v1.0.0...v1.1.0) (2023-06-06)
+
+
+### Features
+
+* update text ([90e55f8](https://github.com/idpuzzle1/ReleasePleaseSetup/commit/90e55f8b9538d6d07a37e950db1ba02d31b5a79f))
+
 ## 1.0.0 (2023-06-05)
 
 
