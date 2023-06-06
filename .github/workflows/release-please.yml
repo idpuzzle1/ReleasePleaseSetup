@@ -27,7 +27,7 @@ jobs:
   versionup:
     needs:
       - release-please
-    if: ${{ needs.release-please.outputs.release_pr }}
+    if: ${{ !needs.release-please.outputs.release_created }}
     runs-on: macos-latest
     steps:
     - name: bump
