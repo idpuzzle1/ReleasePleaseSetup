@@ -27,14 +27,14 @@ jobs:
   versionup:
     needs:
       - release-please
+    if: ${{ needs.release-please.outputs.release_pr }}
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: yanamura/ios-bump-version@v1
-      with:
-        version: ${{ needs.release-please.outputs.version }}
-    - name: update
+    - name: bump
+      run: |
+        xcrun agvtool new-marketing-version ${{ needs.release-please.outputs.version }} next-version -all
+    - name: push
       run: |
         git add .
-        git commit -m "bump version"
+        git commit -m ":robot: bump version on ${{ needs.release-please.outputs.version }}"
         git push origin ${{ needs.release-please.outputs.release_pr.headBranchName }}
