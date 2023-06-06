@@ -20,16 +20,16 @@ jobs:
         release-type: simple
         package-name: release-please-action
     - uses: actions/checkout@v3
-      if: ${{ !release-please.release_created }}
+      if: ${{ !steps.release-please.output.release_created }}
       with:
-        ref: ${{ release-please.release_pr.headBranchName }}
+        ref: ${{ steps.release-please.output.release_pr.headBranchName }}
     - name: bump
-      if: ${{ !release-please.release_created }}
+      if: ${{ !steps.release-please.output.release_created }}
       run: |
-        xcrun agvtool new-marketing-version ${{ release-please.version }}
+        xcrun agvtool new-marketing-version ${{ steps.release-please.output.version }}
     - name: push
       if: ${{ !release-please.release_created }}
       run: |
         git add .
-        git commit -m ":robot: bump version on ${{ release-please.version }}"
-        git push origin ${{ release-please.headBranchName }}
+        git commit -m ":robot: bump version on ${{ steps.release-please.output.version }}"
+        git push origin ${{ steps.release-please.output.headBranchName }}
