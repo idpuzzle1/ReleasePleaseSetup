@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.0.1](https://github.com/idpuzzle1/ReleasePleaseSetup/compare/v2.0.0...v2.0.1) (2023-06-06)
+
+
+### Bug Fixes
+
+* checkout before bump ([3c844fe](https://github.com/idpuzzle1/ReleasePleaseSetup/commit/3c844fe2fae50cd634f59b21af8c1fdd66085472))
+* don't skip bump on create pr ([c7c8360](https://github.com/idpuzzle1/ReleasePleaseSetup/commit/c7c83605c839118bb04eb7ecb2a32ab31a92d5e4))
+* move all action steps in one job ([550b58a](https://github.com/idpuzzle1/ReleasePleaseSetup/commit/550b58a15669ed6ec7a687e71985bd8bedf38aea))
+* move all action steps in one job ([8a13663](https://github.com/idpuzzle1/ReleasePleaseSetup/commit/8a13663d734872cb2e7e12ea50f3ba0ccd4186aa))
+* release-please output names ([61974c5](https://github.com/idpuzzle1/ReleasePleaseSetup/commit/61974c55008936873d425a4df8671cc4c5dbe186))
+* start numb version only for pr ([e6a95ab](https://github.com/idpuzzle1/ReleasePleaseSetup/commit/e6a95abde51cad234129e17cee855959ab551a6d))
+* use scrub to bump version ([0eeb22d](https://github.com/idpuzzle1/ReleasePleaseSetup/commit/0eeb22d7d3c51c52623ce8c2c0dd0cb09d70b8e3))
+
 ## [2.0.0](https://github.com/idpuzzle1/ReleasePleaseSetup/compare/v1.0.0...v2.0.0) (2023-06-06)
 
 
